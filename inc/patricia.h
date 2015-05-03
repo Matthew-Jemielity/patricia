@@ -18,6 +18,9 @@
 #include <cstddef>
 #include <trieable.h>
 
+/**
+ * \brief Implements patricia trie.
+ */
 class Patricia
 {
 public:
