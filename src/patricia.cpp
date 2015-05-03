@@ -183,6 +183,10 @@ internal_search(Trieable const& val, Patricia::node& root)
         }
         /* next is a prefix of val */
         current = next;
+        if(val.len() <= next->branch)
+        {
+            break;
+        }
         next = next->child[val.bit(next->branch)];
     }
 NO_PREFIX_IN_THIS_BRANCH:
