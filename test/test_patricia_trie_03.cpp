@@ -34,6 +34,12 @@ int main()
 {
     Patricia trie;
 
+    for(unsigned int i = 0; i < 256; ++i)
+    {
+        trieable_uchar t(i, 8);
+        assert(0 == trie.insert(t).status);
+    }
+
     for(unsigned int i = 0; i < 2; ++i)
     {
         trieable_uchar t(i << 7, 1);
@@ -76,11 +82,7 @@ int main()
         assert(0 == trie.insert(t).status);
     }
 
-    for(unsigned int i = 0; i < 256; ++i)
-    {
-        trieable_uchar t(i, 8);
-        assert(0 == trie.insert(t).status);
-    }
+    trie.print();
 
     for(unsigned int i = 0; i < 256; ++i)
     {
