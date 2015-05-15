@@ -25,9 +25,9 @@ Trieable::diff(Trieable const& object, std::size_t const start) const
     std::size_t const end = std::min(this->len(), object.len());
 
     std::size_t position;
-    for(position = start; position < end; ++position)
+    for (position = start; position < end; ++position)
     {
-        if(this->bit(position) != object.bit(position))
+        if (this->bit(position) != object.bit(position))
         {
             different = true;
             break;
