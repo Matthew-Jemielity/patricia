@@ -22,7 +22,7 @@ int main(int argc, char * args[])
     Trieable * t4 = new CIDR(0x7F000002, 32);
     Trieable * t5 = new CIDR(0x7F000001, 32);
     assert((NULL!=t1) && (NULL!=t2) && (NULL!=t3) && (NULL!=t4) && (NULL!=t5));
-    Trieable::diff_result result;
+    Trieable::difference result;
 
     result = t1->diff(*t2);
     assert(false == result.diff);

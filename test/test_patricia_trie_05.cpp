@@ -42,7 +42,7 @@ int main()
         unsigned int val = std::rand();
         unsigned int len = std::rand() % 33;
         trieable_uint t(val, len);
-        Patricia::status_s result = trie.insert(t);
+        Patricia::status result = trie.insert(t);
         assert((0 == result.status) || (EEXIST == result.status));
     }
 

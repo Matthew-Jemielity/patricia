@@ -26,7 +26,7 @@ CIDR::~CIDR()
     /* do nothing */
 }
 
-CIDR *
+CIDR*
 CIDR::copy() const
 {
     return new CIDR(*this);

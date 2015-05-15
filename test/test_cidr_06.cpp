@@ -20,7 +20,7 @@ int main(int argc, char * args[])
     CIDR c2(0x7F000001, 29);
     CIDR c3(0x7F000002, 32);
     CIDR c4(0x7F000001, 32);
-    Trieable::diff_result result;
+    Trieable::difference result;
 
     result = c1.diff(c1);
     assert(false == result.diff);

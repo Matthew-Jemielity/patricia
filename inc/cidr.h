@@ -24,7 +24,7 @@ public:
      * \brief Construct a CIDR notation object with default mask of 32.
      * \param ip Base address, encoding: 127.0.0.1 -> 0x7F000001.
      */
-    CIDR(unsigned int const ip);
+    explicit CIDR(unsigned int const ip);
     /**
      * \brief Construct a CIDR notation object from passed base and mask.
      * \param ip Base address, encoding: 127.0.0.1 -> 0x7F000001.
@@ -37,7 +37,7 @@ public:
      * \brief A "virtual copy contructor".
      * \return Pointer to a newly allocated copy of this object.
      */
-    virtual CIDR * copy() const;
+    virtual CIDR* copy() const;
     /**
      * \see Trieable::bit
      */

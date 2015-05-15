@@ -42,7 +42,7 @@ int main()
     assert(0 == trie.insert(t3).status);
     assert(0 == trie.insert(t4).status);
 
-    Patricia::search_status_s found;
+    Patricia::search_status found;
 
     found = trie.search(t1);
     assert((0 == found.status) && (1 == found.result->len()));

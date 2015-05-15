@@ -17,7 +17,7 @@ class Trieable
 {
 public:
     virtual ~Trieable() {}
-    virtual Trieable * copy() const = 0;
+    virtual Trieable* copy() const = 0;
     /**
      * \brief Get value of bit at given position in the data.
      * \param position Position from beginning of data to get.
@@ -44,13 +44,12 @@ public:
          */
         std::size_t bit;
     }
-    diff_result;
+    difference;
     /**
      * \brief Tests whether two Trieable objects differ.
      * \param object Object to compare with this object.
-     * \param start Bit from which to begin comparison, zero by default.
-     * \return diff_result structure.
-     * \see diff_result
+     * \return difference structure.
+     * \see difference
      *
      * If objects have different lengths, then comparison will stop after
      * lower length is reached. Differing lengths mean that difference will
@@ -61,7 +60,25 @@ public:
      * If start position is greater that lower length, then only length
      * comparison will be done.
      */
-    diff_result diff(Trieable const& object, std::size_t start = 0) const;
+    difference diff(Trieable const& object) const;
+
+    /**
+     * \brief Tests whether two Trieable objects differ.
+     * \param object Object to compare with this object.
+     * \param start Bit from which to begin comparison, zero by default.
+     * \return difference structure.
+     * \see difference
+     *
+     * If objects have different lengths, then comparison will stop after
+     * lower length is reached. Differing lengths mean that difference will
+     * be true, but bitwise comparison will still be done. If bits are the
+     * same for entire lower length, then differing bit will be set to the
+     * value of lower length. If objects do not differ then returned
+     * boolean will be false and value of returned bit is unspecified.
+     * If start position is greater that lower length, then only length
+     * comparison will be done.
+     */
+    difference diff(Trieable const& object, std::size_t start) const;
     /**
      * \brief Total bit length of data held in this object.
      * \return Non-zero count of bits of data in this object.

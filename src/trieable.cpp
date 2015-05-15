@@ -12,10 +12,16 @@
 #include <cstddef>
 #include <trieable.h>
 
-Trieable::diff_result
-Trieable::diff(Trieable const& object, std::size_t start) const
+Trieable::difference
+Trieable::diff(Trieable const& object) const
 {
-    bool difference = (this->len() != object.len());
+    return diff(object, 0U);
+}
+
+Trieable::difference
+Trieable::diff(Trieable const& object, std::size_t const start) const
+{
+    bool different = (this->len() != object.len());
     std::size_t const end = std::min(this->len(), object.len());
 
     std::size_t position;
@@ -23,12 +29,12 @@ Trieable::diff(Trieable const& object, std::size_t start) const
     {
         if(this->bit(position) != object.bit(position))
         {
-            difference = true;
+            different = true;
             break;
         }
     }
 
-    diff_result const result= {difference, position};
+    difference const result = {different, position};
     return result;
 }
 

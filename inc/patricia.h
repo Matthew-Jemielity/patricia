@@ -42,7 +42,7 @@ public:
          */
         int status;
     }
-    status_s;
+    status;
     /**
      * \brief Inserts copy of given Trieable object into the trie.
      * \param val Trieable object, which will be copied into trie.
@@ -56,7 +56,7 @@ public:
      * EEXIST - Trieable value already exists in the trie; trie unchanged.
      * EEXIST error code may be treated as success if needed.
      */
-    status_s insert(Trieable const& val);
+    status insert(Trieable const& val);
     /**
      * \brief Removes given exact Trieable object from the trie.
      * \param val Exact copy (data and length) of object to remove.
@@ -70,7 +70,7 @@ public:
      * ENODATA - Trieable value doesn't exists in the trie; trie unchanged.
      * ENODATA status code may be treated as success if needed.
      */
-    status_s remove(Trieable const& val);
+    status remove(Trieable const& val);
     /**
      * \brief Status structure for trie search operation.
      */
@@ -96,7 +96,7 @@ public:
          */
         Trieable const * result;
     }
-    search_status_s;
+    search_status;
     /**
      * \brief Searches for given Trieable object or its closest prefix.
      * \param val Trieable object to search for.
@@ -109,12 +109,12 @@ public:
      * In case status code is ENODATA, the result will be NULL. Status code
      * of EEXISTS may be treated as success if needed.
      */
-    search_status_s search(Trieable const& val);
+    search_status search(Trieable const& val);
 
     /**
      * \brief Debug function printing current state of the trie.
      */
-    void print();
+    void print() const;
 
     struct node_s; /* forward declaration */
     typedef struct node_s node;
